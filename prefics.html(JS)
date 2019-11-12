@@ -56,7 +56,6 @@
 					сount_space++;
 					if(temp1!='')
 					{
-						alert(сount_space);
 						str.unshift(temp1);
 						count_numeric++;
 						temp1='';
