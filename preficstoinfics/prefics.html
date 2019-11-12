@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+	<script>
+	
+	function inficsForm() 
+	{
+		var indices = [];
+		var error="";
+		//var formula='/ + 3 10 * + 2 3 - 3 5';
+		var formula=document.getElementById('textBox1').value;
+		var count_operat=0;
+		var count_numeric=0;
+		var сount_space=0;
+		var str=[' '];
+		var temp1='';
+		
+			for(var i=formula.length-1;i>=0;i--)
+			{
+				
+				if((formula[i].charCodeAt(0)>=48 && formula[i].charCodeAt(0)<=57) || (formula[i].charCodeAt(0)>=65 && formula[i].charCodeAt(0)<=90) ||
+				 (formula[i].charCodeAt(0)>=97 && formula[i].charCodeAt(0)<=122))	//если цифра или буква
+				{
+						сount_space=0;	//занулим счетчик пробелов
+						temp1=formula[i]+temp1;
+				}
+				else if(formula[i]=='/' || formula[i]=='*' || formula[i]=='+' || formula[i]=='-')
+				{
+					сount_space=0;	//занулим счетчик пробелов 
+					count_operat++;
+					var element = ' ';	//нужно найти пробелы
+					var idx = str.indexOf(element);
+					while (idx != -1) //пока не найдет все пробелы
+					{
+						indices.push(idx);
+						idx = str.indexOf(element, idx + 1);
+					}
+					if(count_operat>=count_numeric)
+					{
+						str.splice(indices[0], 1, formula[i]);	//для унарного минуса
+						str.splice(indices[0], 0,'(');
+						str.splice(indices[1], 0, ')');
+					}
+					else
+					{
+						str.splice(indices[0], 1, '(');	//там где был первый пробел вставим (
+						str.splice(indices[1], 1, formula[i]);	//там где был второй пробел вставим знак
+						str.splice(indices[2], 0, ')');	//там где был третий пробел вставим ) и пробел останется
+					}
+					indices=[]; //очищаем массив
+				}
+				else if(formula[i]==' ')
+				{	
+					сount_space++;
+					if(temp1!='')
+					{
+						str.unshift(temp1);
+						count_numeric++;
+						temp1='';
+					}
+					str.unshift(" ");
+				}
+				else
+				{
+					error="Некорректный  ввод. Лишние знаки";
+					alert(error);
+					break;
+				}
+				if(сount_space>1) //проверка ввода
+				{
+					error="Некорректный ввод. Проверьте количество пробелов.";
+					alert(error);
+					break;
+				}
+			}
+		if (error=="")
+		{
+			document.getElementById('text1').innerHTML=str.join('') ;
+		}
+	}
+	</script>
+	<p>Перевод префиксной нотации в инфиксную</p>
+	Используйте пробел в качестве разделителя для ореторов и операндов.<br>
+	Введите выражение в префиксной нотации:<input type="text" id="textBox1" placeholder="Enter string">. 
+	<button type="button" id="ClickButton1" onclick="inficsForm()">OK</button>
+	<br><br>
+	Результат:<span id="text1"></span>
+	<br><br>
+</body>
+</html>
