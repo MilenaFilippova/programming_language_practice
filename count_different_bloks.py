@@ -1,4 +1,5 @@
-
+# Применяя операции морфологического анализа и соответствующие структурирующие элементы необходимо определить общее количество объектов на бинарном изображении (ps.npy.txt) 
+# и количество объектов для каждого вида по отдельности.
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -63,7 +64,7 @@ count_vert_right = img_vert_right.max()
 count_vert_left  = img_vert_left.max() 
 
 
-test = LB_max-count_hor_all-count_hor_top-count_hor_bottom-count_vert_right
+test = LB_max-count_hor_all - count_hor_top - count_hor_bottom - count_vert_right
 if count_vert_left == test :
     print("count_hor_all =",count_hor_all, "\ncount_hor_top =", count_hor_top, 
       "\ncount_hor_bottom =", count_hor_bottom, "\ncount_vert_right =",count_vert_right,
