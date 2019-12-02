@@ -52,16 +52,16 @@ img_hor_all = label(binary_opening(image, hor_all,1))
 img_hor_top = label(binary_opening(image, hor_top,1))
 img_hor_bottom = label(binary_opening(image, hor_bottom,1))
 img_vert_right = label(binary_opening(image, vert_right,1))
-img_vert_left = label(binary_opening(image, vert_left,1))
+img_vert_left  = label(binary_opening(image, vert_left,1))
 
 
 #считаем сколько объектов получилось на каждом изображении
 count_hor_all = img_hor_all.max()
 #убираем дублирование,чтобы не посчитать объекты с дырками в цельных объектах еще раз
-count_hor_top = img_hor_top.max() - count_hor_all 
-count_hor_bottom = img_hor_bottom.max() - count_hor_all 
+count_hor_top = img_hor_top.max() - count_hor_all
+count_hor_bottom = img_hor_bottom.max() - count_hor_all
 count_vert_right = img_vert_right.max()
-count_vert_left  = img_vert_left.max() 
+count_vert_left  = img_vert_left.max()
 
 
 test = LB_max-count_hor_all - count_hor_top - count_hor_bottom - count_vert_right
