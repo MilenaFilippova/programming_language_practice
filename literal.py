@@ -13,9 +13,6 @@ from scipy.ndimage  import binary_dilation
 from skimage.filters  import threshold_otsu
 from skimage.measure  import label, regionprops
 
-#на вход regionprops 
-#from skimage.morphology import label
-
 #считаем буквы с отверстиями, О и 8
 def count_holes(symbol):
 #   hasattr проверяет есть ли такой арибут у объекта и возвращает правда или ложь
