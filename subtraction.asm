@@ -90,13 +90,13 @@ _substraction:
 	dprint
     
     
-    print   nlen, newline
-    print   len, message
-    print   nlen, newline
+	print   nlen, newline
+	print   len, message
+	print   nlen, newline
 	
 _end:
-    mov eax,1   
-    int 0x80
+	mov eax,1   
+	int 0x80
     
 
 section .data
