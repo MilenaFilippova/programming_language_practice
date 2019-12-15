@@ -49,7 +49,6 @@
 
 
 
-
 section .text
 
 global _start
@@ -100,19 +99,19 @@ _end:
     
 
 section .data
-  x dd 5, 3, 2, 6, 1, 7, 4	;массив
+	x dd 5, 3, 2, 6, 1, 7, 4	;массив
 	y dd 0, 10, 1, 9, 2, 8, 5
-	sizex equ 7 ;размер массива x
-	sizey equ 7 ;размер массива y
-	;lenx equ $ -x	;размер массива
-	srx db 0	;среднеарифметическое
+	sizex equ 7 		;размер массива x
+	sizey equ 7 		;размер массива y
+	;lenx equ $ -x		;размер массива
+	srx db 0		;среднеарифметическое
 	sry db 0
 	
-	sum		dd 0	;куда складывать
+	sum dd 0		;куда складывать
 	message db "Done"
-    len equ $ -  message ;длина сообщения
-    newline db 0xA, 0xD
-    nlen    equ $ - newline
+	len equ $ -  message 	;длина сообщения
+	newline db 0xA, 0xD
+	nlen    equ $ - newline
 
     
 segment .bss
