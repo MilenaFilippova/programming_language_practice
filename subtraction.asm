@@ -55,8 +55,8 @@ global _start
 
 _start:
     mov	ecx, sizex
-	lea bx, [x]
-	xor ax,ax
+	lea bx, [x]	;для прохода по массиву 
+	xor ax,ax	;зануляет ax
 	
 _begin:
 	add ax,[bx]
@@ -86,14 +86,15 @@ _substraction:
 	sub ax,bx
 	mov [sum],ax	
 	
+	
+	
+_end:
 	dprint
-    
     
 	print   nlen, newline
 	print   len, message
 	print   nlen, newline
-	
-_end:
+
 	mov eax,1   
 	int 0x80
     
