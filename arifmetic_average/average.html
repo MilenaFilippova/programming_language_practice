@@ -15,7 +15,7 @@
 		var file = evt.target.files[0];
 		if (!file.type.match('text.*')) 
 		{
-				return alert(file.name + " is not a valid text file.");
+			return alert(file.name + " is not a valid text file.");
 		}
 		
 		var reader = new FileReader();
@@ -41,12 +41,12 @@
 			for(var i=0;i<numbers.length;i++)
 			{
 				numbers2[i] = numbers[i]-average;
-				dispers+=numbers2[i]*numbers2[i];
+				dispers += numbers2[i]*numbers2[i];
 			}
 			//Когда мы имеем дело с генеральной совокупностью при вычислении дисперсии, мы делим на N (как и было сделано в рассмотренном нами примере).
 			//Когда мы имеем дело с выборкой, при вычислении дисперсии делим на N-1.
 			//будем считать что числа в файле - уже выборка
-			dispers/=numbers.length-1;
+			dispers /= numbers.length-1;
 			var result = Math.sqrt(dispers)
 			
 			document.getElementById('text1').innerHTML = contents;
