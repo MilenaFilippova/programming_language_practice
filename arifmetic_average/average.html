@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=10" /> 
+	<script language="JavaScript">
+	
+	if ( ! (window.File && window.FileReader && window.FileList && window.Blob)) 
+	{
+	  alert('The File APIs are not fully supported in this browser.');
+	}
+	//чтение из файла в массив
+	function readfile(evt) 
+	{
+		var file = evt.target.files[0];
+		if (!file.type.match('text.*')) 
+		{
+				return alert(file.name + " is not a valid text file.");
+		}
+		
+		var reader = new FileReader();
+		reader.onload = function(event) 
+		{
+			var contents = event.target.result.split("\n");
+			console.log("Содержимое файла: " + contents + "тип файла: " + typeof(contents));
+			var average = 0;
+			var result = 0;
+			var numbers = [];
+			//var numbers = [600,470,170,430,300];
+			var numbers2 =[];
+			var dispers = 0;
+			for(var i=0;i<contents.length;i++)
+			{
+				numbers[i] = Number(contents[i]);
+			}
+			for(var i=0;i<numbers.length;i++)
+			{
+				average += numbers[i];
+			}
+			average/=numbers.length;
+			for(var i=0;i<numbers.length;i++)
+			{
+				numbers2[i] = numbers[i]-average;
+				dispers+=numbers2[i]*numbers2[i];
+			}
+			//Когда мы имеем дело с генеральной совокупностью при вычислении дисперсии, мы делим на N (как и было сделано в рассмотренном нами примере).
+			//Когда мы имеем дело с выборкой, при вычислении дисперсии делим на N-1.
+			//будем считать что числа в файле - уже выборка
+			dispers/=numbers.length-1;
+			var result = Math.sqrt(dispers)
+			
+			document.getElementById('text1').innerHTML = contents;
+			document.getElementById('text2').innerHTML = result;
+		};
+		 
+		reader.onerror = function(event) {
+			console.error("Файл не может быть прочитан! код " + event.target.error.code);
+		};
+		 
+		reader.readAsText(file);
+	}
+
+	window.onload = function () 
+	{
+		document.getElementById('file').addEventListener('change', readfile, false); 
+	}
+		
+	</script>
+</head>
+<body >
+	<p>Расчет стандартного отклонения для значений из файла </p>
+	<br>
+	<input type="file" id="file" name="file" placeholder="Enter filename"/>
+	<br><br>
+	
+	Результат:<span id="text2"></span>
+	<br>
+	Содержимое файла:<span id="text1"></span>
+	<br>
+	
+	<br><br>
+</body>
+</html>
