@@ -12,9 +12,8 @@ int main()
 {
 	
 	ifstream in("D:\\cow.txt");
-	string *str = new string[3000]; //сто строк
+	string *str = new string[3000]; 
 
-	//string str;	//считываемая строка из файла
 	int temp=0;	
 
 	if (!in.is_open())
@@ -99,6 +98,7 @@ int main()
 				else
 					cout<<"buffer[pos] ="<<buffer[pos]<<endl;
 			}
+			//начало цикла
 			else if(str[i] == "moo") 
 			{
 				//cout<<"go cicle1"<<endl;
@@ -118,6 +118,7 @@ int main()
 				 else
 					continue;
 			}
+			//конец цикла
 			else if (str[i] == "MOO") 
 			{
 				//cout<<"go cicle"<<endl;
