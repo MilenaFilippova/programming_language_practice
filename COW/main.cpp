@@ -32,28 +32,28 @@ int main()
 	while (!in.eof()) 
 	{
 			str[index] = get_all_word(in);
-			cout<<"str="<<str[index]<<endl;
+			//cout<<"str="<<str[index]<<endl;
 			index++;
 	}
 	index=0;
 	for (int i = 0; i < sizeof(str); ++i) 
 	{
 			// значение текущей ячейки увеличить на 1
-			if( str[index] == "MoO")
+			if( str[i] == "MoO")
 			{
 				temp++;
 				buffer[pos]=temp;
 				cout<<"MоO++="<<buffer[pos]<<endl;
 			}
 			//значение ​текущей ячейки уменьшить на 1
-			else if(str[index] == "MOo")
+			else if(str[i] == "MOo")
 			{
 				temp--;
 				buffer[pos]=temp;
 				cout<<"MOo-- ="<<buffer[pos]<<endl;
 			}
 			//// ввод значения в текущую ячейку
-			else if(str[index] == "oom")
+			else if(str[i] == "oom")
 			{
 				int x;
 				cout<<"Please enter number:"<<endl;
@@ -61,24 +61,24 @@ int main()
 				buffer[pos]=x;
 			}
 			//OOM - вывод значения текущей ячейки
-			else if(str[index] == "OOM")
+			else if(str[i] == "OOM")
 			{
 				cout<<"buffer[pos]="<<buffer[pos]<<endl;
 			}
 			//moO - следующая ячейка
-			else if(str[index] == "moO")
+			else if(str[i] == "moO")
 			{
 				pos++;
 				cout<<"sdvig-- ="<<pos<<endl;
 			}
 			//mOo - предыдущая ячейка
-			else if(str[index] == "mOo")
+			else if(str[i] == "mOo")
 			{
 				pos--;
 				cout<<"sdvig-- ="<<pos<<endl;
 			}
 			// обнулить значение в ячейке
-			else if(str[index] == "OOO")
+			else if(str[i] == "OOO")
 			{
 				buffer[pos]=0;
 				cout<<"sdvig-- ="<<pos<<endl;
@@ -86,7 +86,7 @@ int main()
 		
 			//Moo - если значение в ячейке равно 0, 
 			//то ввести с клавиатуры, если значение не 0, то вывести на экран
-			else if(str[index] == "Moo")
+			else if(str[i] == "Moo")
 			{
 				if( buffer[pos] == 0 )
 				{
@@ -99,7 +99,7 @@ int main()
 				else
 					cout<<"buffer[pos] ="<<buffer[pos]<<endl;
 			}
-			else if(str[index] == "moo") 
+			else if(str[i] == "moo") 
 			{
 				cout<<"go cicle1"<<endl;
 				 if (!buffer[pos]) 
@@ -107,10 +107,10 @@ int main()
 					brc++;
 					while (brc) 
 					{
-						index ++;
-						if (str[index] == "moo")
+						++i;
+						if (str[i] == "moo")
 							++brc;
-						if (str[index] == "MOO")
+						if (str[i] == "MOO")
 							--brc;
 					}
 					
@@ -118,7 +118,7 @@ int main()
 				 else
 					continue;
 			}
-			else if (str[index] == "MOO") 
+			else if (str[i] == "MOO") 
 			{
 				cout<<"go cicle"<<endl;
 				if (!buffer[pos])
@@ -126,17 +126,17 @@ int main()
 				else 
 				{
 					cout<<"go cicle2"<<endl;
-					if (str[index] == "MOO")
+					if (str[i] == "MOO")
 						brc++;
 					while (brc) 
 					{
-						index--;
-						if (str[index] == "moo")
+						--i;
+						if (str[i] == "moo")
 							brc--;
-						if (str[index] == "MOO")
+						if (str[i] == "MOO")
 							brc++;
 					}
-					index--;
+					--i;
 				}
 			}
 			else
