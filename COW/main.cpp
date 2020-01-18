@@ -43,14 +43,14 @@ int main()
 			{
 				temp++;
 				buffer[pos]=temp;
-				cout<<"MоO++="<<buffer[pos]<<endl;
+				//cout<<"MоO++="<<buffer[pos]<<endl;
 			}
 			//значение ​текущей ячейки уменьшить на 1
 			else if(str[i] == "MOo")
 			{
 				temp--;
 				buffer[pos]=temp;
-				cout<<"MOo-- ="<<buffer[pos]<<endl;
+				//cout<<"MOo-- ="<<buffer[pos]<<endl;
 			}
 			//// ввод значения в текущую ячейку
 			else if(str[i] == "oom")
@@ -69,19 +69,19 @@ int main()
 			else if(str[i] == "moO")
 			{
 				pos++;
-				cout<<"sdvig-- ="<<pos<<endl;
+				//cout<<"sdvig-- ="<<pos<<endl;
 			}
 			//mOo - предыдущая ячейка
 			else if(str[i] == "mOo")
 			{
 				pos--;
-				cout<<"sdvig-- ="<<pos<<endl;
+				//cout<<"sdvig-- ="<<pos<<endl;
 			}
 			// обнулить значение в ячейке
 			else if(str[i] == "OOO")
 			{
 				buffer[pos]=0;
-				cout<<"sdvig-- ="<<pos<<endl;
+				//cout<<"sdvig-- ="<<pos<<endl;
 			}
 		
 			//Moo - если значение в ячейке равно 0, 
@@ -91,17 +91,17 @@ int main()
 				if( buffer[pos] == 0 )
 				{
 					int x;
-					cout<<"Please enter number:"<<endl;
+					//cout<<"Please enter number:"<<endl;
 					cin>>x;
 					buffer[pos]=x;
-					cout<<"sdvig-- ="<<pos<<endl;
+					//cout<<"sdvig-- ="<<pos<<endl;
 				}
 				else
 					cout<<"buffer[pos] ="<<buffer[pos]<<endl;
 			}
 			else if(str[i] == "moo") 
 			{
-				cout<<"go cicle1"<<endl;
+				//cout<<"go cicle1"<<endl;
 				 if (!buffer[pos]) 
 				 {
 					brc++;
@@ -120,12 +120,12 @@ int main()
 			}
 			else if (str[i] == "MOO") 
 			{
-				cout<<"go cicle"<<endl;
+				//cout<<"go cicle"<<endl;
 				if (!buffer[pos])
 					continue;
 				else 
 				{
-					cout<<"go cicle2"<<endl;
+					//cout<<"go cicle2"<<endl;
 					if (str[i] == "MOO")
 						brc++;
 					while (brc) 
